@@ -145,12 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\SLERP.cpp" />
+    <ClCompile Include="src\Quaternion.cpp" />
     <ClCompile Include="src\Program.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\SLERP.h" />
     <ClInclude Include="include\Program.h" />
+    <ClInclude Include="include\Quaternion.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

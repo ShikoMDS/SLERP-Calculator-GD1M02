@@ -21,18 +21,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SLERP.cpp">
+    <ClCompile Include="src\Program.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Program.cpp">
+    <ClCompile Include="src\Quaternion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\SLERP.h">
+    <ClInclude Include="include\Program.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Program.h">
+    <ClInclude Include="include\Quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
