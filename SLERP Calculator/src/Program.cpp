@@ -1,13 +1,26 @@
+/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Program.cpp
+Description : Implementations for a SLERP calculator program
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
 #include "Program.h"
 
 void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) const
 {
+	// Temporary read line
 	std::string Line;
 	std::getline(File, Line);
 
 	// Format is "w +/- xi +/- yj +/- zk"
 	std::istringstream Iss(Line);
-	char Dummy; // to temporarily store '+'/'-' and 'i', 'j', 'k'
+	char Dummy; // To temporarily store '+'/'-' and 'i', 'j', 'k'
 
 	// Read the real part
 	if (!(Iss >> Quat.W))
@@ -27,7 +40,8 @@ void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) cons
 
 			Iss >> Value;
 			std::string PartValue(1, Part);
-
+			
+			// Positive value 
 			if (Dummy == '+')
 			{
 				if (Value != PartValue)
@@ -39,6 +53,7 @@ void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) cons
 					CurrentPart = 1.0;
 				}
 			}
+			// Negative value
 			else if (Dummy == '-')
 			{
 				if (Value != PartValue)
@@ -56,16 +71,20 @@ void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) cons
 
 void Program::skipEmptyLine(std::ifstream& File) const
 {
+	// Ignore the line as it is empty
 	std::string Line;
 	std::getline(File, Line);
 }
 
+// Constructor
 Program::Program() = default;
 
+// Deconstructor
 Program::~Program() = default;
 
 void Program::run()
 {
+	// Run all the needed functions
 	loadQuaternionsAndInterpolation("Slerp.txt");
 	displayQuaternions();
 	performOperations();
@@ -74,6 +93,7 @@ void Program::run()
 void Program::loadQuaternionsAndInterpolation(const std::string& Filename)
 {
 	std::ifstream File(Filename);
+	// Tell user if file not opened
 	if (!File.is_open())
 	{
 		std::cerr << "Error opening file: " << Filename << std::endl;
@@ -101,6 +121,7 @@ void Program::loadQuaternionsAndInterpolation(const std::string& Filename)
 
 void Program::displayQuaternions() const
 {
+	// Display the quaternions in the correct formatting
 	std::cout << "Quaternion A: " << QuaternionA.W << " + " << QuaternionA.X << "i + " << QuaternionA.Y << "j + " <<
 		QuaternionA.Z << "k" << std::endl;
 	std::cout << "Quaternion B: " << QuaternionB.W << " + " << QuaternionB.X << "i + " << QuaternionB.Y << "j + " <<
@@ -110,6 +131,7 @@ void Program::displayQuaternions() const
 
 void Program::performOperations() const
 {
+	// List all operations here in order
 	std::cout << "\nInduced matrix for A:\n";
 	QuaternionA.induceMatrix();
 	std::cout << std::endl;

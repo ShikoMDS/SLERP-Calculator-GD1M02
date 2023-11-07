@@ -1,5 +1,16 @@
+/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Program.h
+Description : Declarations for a SLERP calculator program
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
 #pragma once
-//#include "SLERP.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -17,9 +28,12 @@ private:
 	void skipEmptyLine(std::ifstream& File) const;
 
 public:
+	// Constructor
 	Program();
+	// Deconstructor
 	~Program();
 
+	// Program operations
 	void run();
 	void loadQuaternionsAndInterpolation(const std::string& Filename);
 	void displayQuaternions() const;

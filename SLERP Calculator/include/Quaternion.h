@@ -1,3 +1,15 @@
+/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Quaternion.h
+Description : Declarations for a SLERP calculator program
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
 #pragma once
 #include <iostream>
 #include <iomanip>
@@ -5,6 +17,7 @@
 class Quaternion
 {
 public:
+	// Constructors
 	Quaternion();
 	Quaternion(double W, double X, double Y, double Z);
 
@@ -20,6 +33,7 @@ public:
 
 	Quaternion operator*(double Scalar) const;
 
+	// Variables
 	double W, X, Y, Z;
 	double Omega;
 };

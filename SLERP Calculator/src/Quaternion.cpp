@@ -1,4 +1,16 @@
-﻿#include "Quaternion.h"
+﻿/***********************************************************************
+Bachelor of Software Engineering
+Media Design School
+Auckland
+New Zealand
+(c) [Year] Media Design School
+File Name : Quaternion.cpp
+Description : Implementations for a SLERP calculator program
+Author : Chris, Shikomisen (Ayoub)
+Mail : christopher.houdt@mds.ac.nz, ayoub.ahmad@mds.ac.nz
+**************************************************************************/
+
+#include "Quaternion.h"
 
 // Constructors
 Quaternion::Quaternion() : W(0), X(0), Y(0), Z(0)
@@ -16,22 +28,26 @@ Quaternion::~Quaternion() = default;
 
 Quaternion Quaternion::operator+(const Quaternion& Rhs) const
 {
+	// Quaternion addition
     return { W + Rhs.W, X + Rhs.X, Y + Rhs.Y, Z + Rhs.Z };
 }
 
 double Quaternion::magnitude() const
 {
+	// Magintude of quaternion
 	return sqrt((this->W * this->W) + (this->X * this->X) + (this->Y * this->Y) + (this->Z * this->Z));
 }
 
 double Quaternion::omega(const Quaternion& Rhs) const
 {
+	// Omega value of quaternion
 	return acos(((this->W * Rhs.W) + (this->X * Rhs.X) + (this->Y * Rhs.Y) + (this->Z * Rhs.Z))
 		/ (this->magnitude() * Rhs.magnitude()));
 }
 
 Quaternion Quaternion::slerp(const Quaternion& Rhs, double OmegaValue, double Interpolation) const
 {
+	// Calculate Slerp
 	Quaternion SlerpQuaternion;
 
 	if (Interpolation < 0.00 || Interpolation > 1.00)
@@ -51,6 +67,7 @@ Quaternion Quaternion::slerp(const Quaternion& Rhs, double OmegaValue, double In
 
 void Quaternion::induceMatrix() const
 {
+	// Induce matrix for the quaternion
 	double Matrix[4][4]{};
 
 	Matrix[0][0] = (2 * ((this->W) * (this->W))) - 1 + (2 * ((this->X) * (this->X)));
@@ -81,7 +98,9 @@ void Quaternion::induceMatrix() const
 		}
 	}
 
+	// Precision set to get rid of extremely low values which would equate to zero
 	std::cout << std::setprecision(3);
+	// Display the matrix
 	std::cout << Matrix[0][0] << "		" << Matrix[0][1] << "		" << Matrix[0][2] << "		" << Matrix[0][3] << std::endl;
 	std::cout << Matrix[1][0] << "		" << Matrix[1][1] << "		" << Matrix[1][2] << "		" << Matrix[1][3] << std::endl;
 	std::cout << Matrix[2][0] << "		" << Matrix[2][1] << "		" << Matrix[2][2] << "		" << Matrix[2][3] << std::endl;
@@ -90,6 +109,7 @@ void Quaternion::induceMatrix() const
 
 Quaternion Quaternion::operator*(double Scalar) const
 {
+	// Quaternion multiplication
 	return { this->W * Scalar, this->X * Scalar, this->Y * Scalar, this->Z * Scalar };
 }
 
