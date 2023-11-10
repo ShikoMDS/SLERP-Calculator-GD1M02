@@ -24,7 +24,10 @@ A Visual Studio 2022 solution is provided, however "main.cpp" and individual sou
 ## Features  
 ### Implementations  
 The output of the following operations have been implemented.  
-- ()  
+- Induced matrix A  
+- Induced matrix B  
+- Resultant SLERP  
+- Induced matrix resultant SLERP  
   
   
 ## Requirements  

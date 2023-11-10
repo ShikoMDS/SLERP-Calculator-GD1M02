@@ -30,7 +30,7 @@ private:
 public:
 	// Constructor
 	Program();
-	// Deconstructor
+	// Destructor
 	~Program();
 
 	// Program operations

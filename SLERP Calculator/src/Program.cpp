@@ -32,7 +32,7 @@ void Program::readQuaternionFromFile(std::ifstream& File, Quaternion& Quat) cons
 	std::string Value;
 
 	// Loop to read 'i', 'j', 'k' parts
-	for (char Part : {'i', 'j', 'k'})
+	for (const char Part : {'i', 'j', 'k'})
 	{
 		if (Iss >> Dummy)
 		{
@@ -79,7 +79,7 @@ void Program::skipEmptyLine(std::ifstream& File) const
 // Constructor
 Program::Program() = default;
 
-// Deconstructor
+// Destructor
 Program::~Program() = default;
 
 void Program::run()

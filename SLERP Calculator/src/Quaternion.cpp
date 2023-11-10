@@ -34,7 +34,7 @@ Quaternion Quaternion::operator+(const Quaternion& Rhs) const
 
 double Quaternion::magnitude() const
 {
-	// Magintude of quaternion
+	// Magnitude of quaternion
 	return sqrt((this->W * this->W) + (this->X * this->X) + (this->Y * this->Y) + (this->Z * this->Z));
 }
 
@@ -45,7 +45,7 @@ double Quaternion::omega(const Quaternion& Rhs) const
 		/ (this->magnitude() * Rhs.magnitude()));
 }
 
-Quaternion Quaternion::slerp(const Quaternion& Rhs, double OmegaValue, double Interpolation) const
+Quaternion Quaternion::slerp(const Quaternion& Rhs, const double OmegaValue, const double Interpolation) const
 {
 	// Calculate Slerp
 	Quaternion SlerpQuaternion;
